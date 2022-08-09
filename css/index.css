@@ -1,40 +1,481 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* background-color: aqua; */
-    font-family: 'Fredoka', sans-serif;   
+    font-family: 'Fredoka', sans-serif;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
-body{
+body {
     --btn-color: #FE5E35;
     --txt-color: #c6c0c0;
-    --un-color:  #eff713;
-    height: 100vh;
-    width: 100vw;
-    padding: 1rem 3rem;
-    overflow: hidden;
+    --un-color: #eff713;
+    /* min-height: 90%;
+      max-width: 100%;
+     */
 }
 
 /* =======nav start============ */
 
-nav{
+nav {
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 10rem;
+    /* background-color: #eff713; */
+    position: relative;
+    text-align: right;
+}
+
+.nav-items {
+    position: absolute;
+    font-size: 1.5rem;
+    background-color: rgb(250, 124, 28);
+    
+    text-align: center;
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform .4s ease-in-out;
+}
+
+.nav-item{
+    padding: .5rem 0;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 10px;
+    left: 1rem;
+    /* border: 1px solid red; */
+    height: 100%;
+    display: flex;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: black;
+    height: 2px;
+    width: 20px;
+    border-radius: 2px;
+    position: relative;
+    /* left: 2rem; */
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+    /* left: 2rem; */
+}
+
+.nav-toggle-label span::before {
+    bottom: 4px;
+}
+
+.nav-toggle-label span::after {
+    top: 4px;
+}
+
+.nav-item:hover {
+    color:#fff;
+}
+
+nav .logo {
+    max-width: 16%;
+}
+
+nav .cart {
+    max-width: 34%;
+    margin-left: 3rem;
+}
+
+.nav-toggle:checked~.nav-items {
+    transform: scale(1, 1);
+}
+
+.intro-section {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.left-section {
+    text-align: center;
+}
+
+.sub-headlines {
+    text-align: left;
+    margin: 2rem auto;
+    max-width: 80%;
+}
+
+.sub-headlines .sub-headline {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+.sub-headlines .sub-headline img {
+    border-radius: 50%;
+    width: 1.8rem;
+    padding: 0.5rem;
+    margin-right: .6rem;
+    background-color: var(--btn-color);
+}
+
+.left-section h3 img {
+    width: 4.2rem;
+}
+
+.left-section h3{
+    font-size: 2.5rem;
+}
+
+.left-section h1 {
+    font-size: 3rem;
+    /* max-width: 100%; */
+}
+
+.right-section,
+.left-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.headphone-div {
+    text-align: center;
+}
+
+.discount-content {
+    position: relative;
+    bottom: -17.5rem;
+    left: -10.4rem;
+    /* font-weight: 400; */
+    color: #fff;
+}
+
+.discount {
+    max-width: 7rem;
+    position: relative;
+    bottom: -23rem;
+    left: -105px;
+}
+
+.headphone_img {
+    max-width: 25rem;
+    position: relative;
+    z-index: -1;
+    top: -60px;
+}
+
+.text {
+    max-width: 80%;
+    width: 500px;
+    color: var(--txt-color);
+    /* background-color: #eff713; */
+    text-align: left;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    
+}
+
+.action-btn {
+    padding: 1rem 2rem;
+   
+    margin: 1rem 0;
+    background-color: var(--btn-color);
+    color: #fff9f9;
+    border-style: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 550;
+    border-radius: 4rem;
+    cursor: pointer;
+    /* position: relative;
+    top: -51px; */
+}
+
+.action-btn-mobile{
+     max-width: 50%;
+     margin: 0 auto;
+}
+
+.dots {
+    max-width: 8rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    top: -67px;
+    margin-bottom: -6rem;
+}
+
+
+.dots .dot {
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: .5rem;
+
+}
+
+.yellow-dot {
+    background-color: var(--un-color);
+}
+
+.tomato-dot {
+    background-color: var(--btn-color);
+}
+
+.black-dot {
+    background-color: #000000;
+}
+
+/* =======nav end============ */
+@media screen and (min-width: 800px) {
+    
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-items {
+        all: unset;
+        grid-column: 2/3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 2em;
+    }
+
+    .logo {
+        grid-column: 1/2;
+        min-width: 24%;
+        justify-self: left;
+        align-self: center;
+    }
+
+    .cart {
+        grid-column: 3/4;
+        justify-self: right;
+        align-self: center;
+        min-width: 65%;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 1fr minmax(300px, 1fr) 1fr;
+        grid-template-rows: repeat(1, 1fr);
+        padding-left: 2rem;
+        min-height: 20%;
+        max-width: 100%;
+        
+    }
+
+    .nav-item:hover {
+        color:rgb(237, 156, 49);
+    }
+
+    .intro-section {
+        all: unset;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 95%; 
+        /* background-color: #eff713; */
+        
+    }
+
+    .left-section {
+        /* all: unset */
+        padding: 2rem;
+        max-width: 50%;
+        /* margin: 0 0; */
+    }
+
+    .left-section h3 {
+        all: unset;
+        max-width: 100%;
+        width: 300px;
+        margin: 0 0 1rem 0;
+        font-size: 3.2rem;
+        text-align: start;
+        font-weight: 300;
+        /* background-color: #c6c0c0; */
+    }
+
+    .left-section h1 {
+        all: unset;
+        text-align: start;
+        max-width: 100%;
+        font-size: 5.4rem;
+        font-family: 'Fredoka One', cursive;
+        /* background-color: #4113f7; */
+        font-weight: 400;
+        letter-spacing: .5rem;
+    }
+
+    .sub-headlines {
+        all: unset;
+        max-width: 100%;
+        /* background-color: #d00f0f; */
+        padding-left: 5rem;
+    }
+
+    .sub-headlines .sub-headline {
+        all: unset;
+        font-size: 2.3rem;
+        line-height: 5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .sub-headlines .sub-headline img {
+        all: unset;
+        text-align: start;
+        border-radius: 50%;
+        padding: .3rem;
+        margin-top: 1rem;
+        width: 1.5rem;
+        margin-right: 1rem;
+        background-color: var(--btn-color);
+    }
+
+    .text {
+        all: unset;
+        text-align: start;
+        color: var(--txt-color);
+        max-width: 95%;
+        font-size: 1.5rem;
+        font-weight: 100;
+        padding: 1rem 0 4rem 0;
+        /* background-color: yellowgreen; */
+    }
+
+    .action-btns {
+        min-width: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 2rem;
+    }
+
+    .action-btn {
+        padding: 2rem 4rem;
+        background-color: var(--btn-color);
+        color: #fff9f9;
+        border-style: none;
+        outline: none;
+        font-size: 2.1rem;
+        font-weight: 550;
+        border-radius: 4rem;
+        cursor: pointer;
+
+    }
+
+    .right-section {
+        all: unset;
+        max-width: 50%;
+        /* max-height: 62rem; */
+        /* background-color:#eff713; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .headphone-div {
+        all: unset;
+        width: 90%;
+        text-align: center;
+    }
+
+    
+    .headphone-div .headphone_img{
+        all: unset;
+        max-width: 80%;
+        position: relative;
+        top: -9rem;
+    }
+    
+    .headphone-div .discount{
+        z-index: 1;
+        transform: scale(1.2,1.2);
+        position: relative;
+        bottom: -38rem;
+        left: -17rem;
+    }
+    
+    .discount-content{
+        z-index: 1;
+        transform: scale(1);
+        /* width: 12rem; */
+        bottom: -32.4rem;
+        left: -17rem;
+   }
+
+    .dots{
+        min-width: 13rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        /* background-color: aqua; */
+        position: relative;
+        top: -11rem;
+        margin-bottom: -10rem;
+    }
+    
+    .dots .dot{
+        border-radius: 50%;
+        /* background-color: blueviolet; */
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+}
+
+/* =======intro section start============ */
+
+/* 
+ */
+
+
+/* =======intro section end============ */
+
+
+/* ============ Media Query ================= */
+
+/* nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
+    max-width: 100%;
     height: 8rem;
-    /* background-color: #eff713; */
+    background-color: #eff713;
 }
 
 nav .nav-items{
     width: 60vw;
     height: inherit;
-    /* background-color: #FE5E35; */
+    background-color: #FE5E35;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -50,26 +491,26 @@ nav .nav-items h5{
     width: 15vw;
     text-align: center;
     cursor: pointer;
-}
+} */
 
 /* =======nav end============ */
 
 /* =======intro section start============ */
-
-.intro-section{
+/* padding: 0 4rem; */
+/* .intro-section{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
     height: 63rem;
-    /* background-color: darkblue; */
-    padding: 0 4rem;
+    background-color: darkblue;
+    
 }
 
 .left-section{
     width: 50%;
     height: inherit;
-    /* background-color: #FE5E35; */
+    background-color: #FE5E35;
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
@@ -81,7 +522,7 @@ nav .nav-items h5{
     margin: 1.2rem 0;
     font-size: 3.2rem;
     font-weight: 300;
-    /* background-color: #c6c0c0; */
+    background-color: #c6c0c0;
 }
 
 .left-section h1{
@@ -89,7 +530,7 @@ nav .nav-items h5{
     height: 12rem;
     font-size: 6rem;
     font-family: 'Fredoka One', cursive;
-    /* background-color: #eff713; */
+    background-color: #eff713;
     font-weight: 400;
     letter-spacing: .5rem;
 }
@@ -102,7 +543,7 @@ nav .nav-items h5{
     align-items: flex-start;
     flex-direction: column;
     padding-left: 8rem;
-    /* background-color: #fff9f9; */
+    background-color: #fff9f9;
 }
 
 .sub-headlines .sub-headline{
@@ -129,17 +570,17 @@ nav .nav-items h5{
     align-items: center;
     font-size: 1.79rem;
     font-weight: 100;
-    /* background-color: yellowgreen; */
-}
+    background-color: yellowgreen;
+} */
 
-.action-btns{
+/* .action-btns{
     width: 67rem;
     height: 10rem;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
     gap: 4rem;
-    /* background-color: yellow; */
+    background-color: yellow;
 }
 
 .action-btn{
@@ -152,15 +593,14 @@ nav .nav-items h5{
     font-weight: 550;
     border-radius: 4rem;
     cursor: pointer;
-    /* margin-top: 6rem; */
-}
+} */
+/* margin-top: 6rem; */
 
 
-
-.right-section{
+/* .right-section{
     width: 50%;
     height: 62rem;
-    /* background-color:#eff713; */
+    background-color:#eff713;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -170,7 +610,7 @@ nav .nav-items h5{
 .headphone-div{
     height: 50rem;
     width: 43rem;
-     /* background-color: violet; */
+     background-color: violet;
      position: relative;
 }
 
@@ -216,7 +656,7 @@ nav .nav-items h5{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: aqua; */
+    background-color: aqua;
     position: absolute;
     bottom: 12rem;
     right: 28rem;
@@ -224,7 +664,7 @@ nav .nav-items h5{
 
 .dots .dot{
     border-radius: 50%;
-    /* background-color: blueviolet; */
+    background-color: blueviolet;
     height: 2.5rem;
     width: 2.5rem;
     
@@ -247,5 +687,5 @@ nav .nav-items h5{
     bottom: 3.5rem;
     right: 25rem;
     
-}
-/* =======intro section end============ */
+} */
+/* =======intro section end============*/
