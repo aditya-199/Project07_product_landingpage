@@ -18,3 +18,6 @@
 ## Time Taken ##
 Around 6 hrs
 
+![Gif](https://media.giphy.com/media/KX7fiLo9xvJvipSOLe/giphy.gif)
+![](https://media.giphy.com/media/rzxTBrnxrajJZmY2vb/giphy.gif)
+
